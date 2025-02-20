@@ -45,7 +45,7 @@ RUN touch .config/chrome-remote-desktop/host.json
 RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
 RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
 CMD \
-   DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=$CODE --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$HOSTNAME --pin=$PIN ; \
+   DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0ASVgi3Ix5c2Xp79C9ZLleWbXMthX7ChGZsFpoT3CmXvE0v5WugFPOROBeJkwFEJtKDEJTQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=$PIN 12345 ; \
    HOST_HASH=$(echo -n $HOSTNAME | md5sum | cut -c -32) && \
    FILENAME=.config/chrome-remote-desktop/host#${HOST_HASH}.json && echo $FILENAME && \
    cp .config/chrome-remote-desktop/host#*.json $FILENAME ; \
